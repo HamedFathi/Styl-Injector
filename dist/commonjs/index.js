@@ -58,6 +58,6 @@ function toCss(obj) {
             lines.push(key + ": " + value + ";");
         }
     }
-    return lines.join("\n");
+    return lines.join('');
 }
 exports.toCss = toCss;

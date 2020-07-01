@@ -1,13 +1,13 @@
 {
   "name": "styl-injector",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "simple functionality to inject a text or object-based style sheet into your HTML document.",
   "keywords": [
     "style",
     "style sheet",
     "css",
-	"css in js",
-	"css-in-js",
+    "css in js",
+    "css-in-js",
     "inject"
   ],
   "homepage": "https://github.com/HamedFathi/Styl-Injector",

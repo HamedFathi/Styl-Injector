@@ -59,7 +59,7 @@ define(["require", "exports"], function (require, exports) {
                 lines.push(key + ": " + value + ";");
             }
         }
-        return lines.join("\n");
+        return lines.join('');
     }
     exports.toCss = toCss;
 });

@@ -55,5 +55,5 @@ export function toCss(obj: any): string {
       lines.push(`${key}: ${value};`);
     }
   }
-  return lines.join("\n");
+  return lines.join('');
 }

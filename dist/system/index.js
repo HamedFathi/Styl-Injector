@@ -58,7 +58,7 @@ System.register([], function (exports_1, context_1) {
                 lines.push(key + ": " + value + ";");
             }
         }
-        return lines.join("\n");
+        return lines.join('');
     }
     exports_1("toCss", toCss);
     return {
