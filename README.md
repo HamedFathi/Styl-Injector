@@ -50,6 +50,8 @@ li {
 
 You can use [css-to-js transformer](https://transform.tools/css-to-js) to convert a CSS text to a JS object and use the result for `toCss(result)` directly!
 
+There is a conventional naming approach for defining your rules. Every uppercase character will change to a hyphen and a lowercase character. For example, If you want to achieve `-webkit-animation` you should write `WebkitAnimation` or `flexDirection` will change to `flex-direction`.
+
 ---
 
 ### injectStylesheet(textOrObj, id, overridable, hostElement)
