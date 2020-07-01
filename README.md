@@ -54,14 +54,14 @@ There is a conventional naming approach for defining your rules. Every uppercase
 
 ---
 
-### injectStylesheet(textOrObj, id, overridable, hostElement)
+### injectStylesheet(textOrObject, id, overridable, hostElement)
 
 A functionality to inject your text or object-based style to the html document easily!
 
 
 | Parameter(s) |      Description      |  Optional | Default |
 |----------|:-------------|:------:|:------:|
-| textOrObj |  Text style or object-based style | No | - |
+| textOrObject |  Text style or object-based style | No | - |
 | id |  To set an id for your `<style>`, it helps you to update an specific style tag | Yes | - |
 | overridable |  If set this to `false`, you can inject your style just **once** | Yes | true |
 | hostElement |  To set your host element to inject your style into it. Useful for shadow DOM | Yes | document.head |

@@ -12,13 +12,13 @@ define(["require", "exports"], function (require, exports) {
             .toLowerCase();
         return isUppercase ? "-" + result : result;
     }
-    function injectStyle(textOrObj, id, overridable, hostElement) {
+    function injectStyle(textOrObject, id, overridable, hostElement) {
         if (overridable === void 0) { overridable = true; }
         if (hostElement === void 0) { hostElement = document.head; }
-        if (!textOrObj || Array.isArray(textOrObj))
+        if (!textOrObject || Array.isArray(textOrObject))
             return;
         var css = "";
-        css = typeof textOrObj === "object" ? toCss(textOrObj) : textOrObj;
+        css = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
         if (css.length === 0)
             return;
         if (id) {
@@ -53,10 +53,10 @@ define(["require", "exports"], function (require, exports) {
             var value = obj[id];
             if (typeof value === "object") {
                 var text = toCss(value);
-                lines.push(id + " { " + text + " }");
+                lines.push(id + "{" + text + "}");
             }
             else {
-                lines.push(key + ": " + value + ";");
+                lines.push(key + ":" + value + ";");
             }
         }
         return lines.join('');

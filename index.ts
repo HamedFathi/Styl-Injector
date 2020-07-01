@@ -9,14 +9,14 @@ function caseConverter(str: string): string {
 }
 
 export function injectStyle(
-  textOrObj: string | object,
+  textOrObject: string | object,
   id?: string,
   overridable = true,
   hostElement: HTMLElement = document.head
 ) {
-  if (!textOrObj || Array.isArray(textOrObj)) return;
+  if (!textOrObject || Array.isArray(textOrObject)) return;
   let css = "";
-  css = typeof textOrObj === "object" ? toCss(textOrObj) : textOrObj;
+  css = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
   if (css.length === 0) return;
   if (id) {
     let oldStyle = document.getElementById(id);
@@ -50,9 +50,9 @@ export function toCss(obj: any): string {
     const value = obj[id];
     if (typeof value === "object") {
       const text = toCss(value);
-      lines.push(`${id} { ${text} }`);
+      lines.push(`${id}{${text}}`);
     } else {
-      lines.push(`${key}: ${value};`);
+      lines.push(`${key}:${value};`);
     }
   }
   return lines.join('');
