@@ -5,7 +5,15 @@
 # Styl-Injector 
 Simple functionality to inject a text or object-based style sheet into your HTML document.
 
-### toCss(obj)
+
+## Installation
+
+Use the following command:
+```bash
+npm i styl-injector
+```
+
+## toCss(obj)
 
 A very simple object-to-css converter.
 
@@ -54,7 +62,7 @@ There is a conventional naming approach for defining your rules. Every uppercase
 
 ---
 
-### injectStylesheet(textOrObject, id, overridable, hostElement)
+## injectStylesheet(textOrObject, id, overridable, hostElement)
 
 A functionality to inject your text or object-based style to the html document easily!
 
