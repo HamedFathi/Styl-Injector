@@ -9,9 +9,11 @@ Simple functionality to inject a text or object-based style sheet into your HTML
 
 A very simple object-to-css converter.
 
-`obj`: your object-based style.
+| Parameter(s) |      Description      |  Optional | Default |
+|----------|:-------------|:------:|:------:|
+| toCss |  Object-based style | No | - |
 
-`returns`: a css text.
+**Returns**: a css text.
 
 ```javascript
 const cssObj = {
@@ -55,13 +57,12 @@ You can use [css-to-js transformer](https://transform.tools/css-to-js) to conver
 A functionality to inject your text or object-based style to the html document easily!
 
 
-`textOrObj`: your text css style or object-based style (like the above sample).
-
-`id`: you can set an id for your `<style>`, it helps you to update an specific style tag - optional.
-
-`overridable`: If you set this to `false`, you can inject your style just **once**. - optional - default is `true`.
-
-`hostElement`: you can set your host element to inject your style into it. Useful for shadow DOM - optional - default is `document.head`.
+| Parameter(s) |      Description      |  Optional | Default |
+|----------|:-------------|:------:|:------:|
+| textOrObj |  Text style or object-based style | No | - |
+| id |  To set an id for your `<style>`, it helps you to update an specific style tag | Yes | - |
+| overridable |  If set this to `false`, you can inject your style just **once** | Yes | true |
+| hostElement |  To set your host element to inject your style into it. Useful for shadow DOM | Yes | document.head |
 
 
 ```javascript
