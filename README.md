@@ -50,7 +50,7 @@ You can use [css-to-js transformer](https://transform.tools/css-to-js) to conver
 
 ---
 
-### injectStylesheet(textOrObj, id, hostElement, overridable)
+### injectStylesheet(textOrObj, id, overridable, hostElement)
 
 A functionality to inject your text or object-based style to the html document easily!
 
@@ -59,9 +59,9 @@ A functionality to inject your text or object-based style to the html document e
 
 `id`: you can set an id for your `<style>`, it helps you to update an specific style tag - optional.
 
-`hostElement`: you can set your host element to inject your style into it. Useful for shadow DOM - optional - default is `document.head`.
-
 `overridable`: If you set this to `false`, you can inject your style just **once**. - optional - default is `true`.
+
+`hostElement`: you can set your host element to inject your style into it. Useful for shadow DOM - optional - default is `document.head`.
 
 
 ```javascript

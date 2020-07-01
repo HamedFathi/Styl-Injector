@@ -1,16 +1,18 @@
 function caseConverter(str: string): string {
   if (str.length === 0) return str;
-  return str
+  const isUppercase = str[0] === str[0].toUpperCase();
+  const result = str
     .split(/(?=[A-Z])/)
     .join("-")
     .toLowerCase();
+  return isUppercase ? `-${result}` : result;
 }
 
 export function injectStyle(
   textOrObj: string | object,
   id?: string,
-  hostElement: HTMLElement = document.head,
-  overridable = true
+  overridable = true,
+  hostElement: HTMLElement = document.head
 ) {
   if (!textOrObj || Array.isArray(textOrObj)) return;
   let css = "";
@@ -48,7 +50,7 @@ export function toCss(obj: any): string {
     const value = obj[id];
     if (typeof value === "object") {
       const text = toCss(value);
-      lines.push(`${key} { ${text} }`);
+      lines.push(`${id} { ${text} }`);
     } else {
       lines.push(`${key}: ${value};`);
     }

@@ -4,14 +4,16 @@ exports.toCss = exports.injectStyle = void 0;
 function caseConverter(str) {
     if (str.length === 0)
         return str;
-    return str
+    var isUppercase = str[0] === str[0].toUpperCase();
+    var result = str
         .split(/(?=[A-Z])/)
         .join("-")
         .toLowerCase();
+    return isUppercase ? "-" + result : result;
 }
-function injectStyle(textOrObj, id, hostElement, overridable) {
-    if (hostElement === void 0) { hostElement = document.head; }
+function injectStyle(textOrObj, id, overridable, hostElement) {
     if (overridable === void 0) { overridable = true; }
+    if (hostElement === void 0) { hostElement = document.head; }
     if (!textOrObj || Array.isArray(textOrObj))
         return;
     var css = "";
@@ -50,7 +52,7 @@ function toCss(obj) {
         var value = obj[id];
         if (typeof value === "object") {
             var text = toCss(value);
-            lines.push(key + " { " + text + " }");
+            lines.push(id + " { " + text + " }");
         }
         else {
             lines.push(key + ": " + value + ";");
