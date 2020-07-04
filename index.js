@@ -11,25 +11,24 @@ function caseConverter(str) {
         .toLowerCase();
     return isUppercase ? "-" + result : result;
 }
-function injectStyle(textOrObj, id, overridable, hostElement) {
+function injectStyle(textOrObject, id, overridable, hostElement) {
     if (overridable === void 0) { overridable = true; }
     if (hostElement === void 0) { hostElement = document.head; }
-    if (!textOrObj || Array.isArray(textOrObj))
+    if (!textOrObject || Array.isArray(textOrObject))
         return;
     var css = "";
-    css = typeof textOrObj === "object" ? toCss(textOrObj) : textOrObj;
+    css = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
     if (css.length === 0)
         return;
     if (id) {
         var oldStyle = document.getElementById(id);
         if (oldStyle) {
             var isStyleTag = oldStyle.tagName.toLowerCase() === "style";
-            if (isStyleTag && overridable) {
-                oldStyle.innerHTML = css;
-                return;
-            }
-            else {
+            if (!isStyleTag) {
                 throw new Error("The provided id does not indicate a style tag.");
+            }
+            else if (overridable) {
+                oldStyle.innerHTML = css;
             }
         }
     }
