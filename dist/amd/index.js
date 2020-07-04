@@ -1,7 +1,7 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.toCss = exports.injectStyle = void 0;
+    exports.injectStyle = exports.toCss = void 0;
     function caseConverter(str) {
         if (str.length === 0)
             return str;
@@ -12,6 +12,26 @@ define(["require", "exports"], function (require, exports) {
             .toLowerCase();
         return isUppercase ? "-" + result : result;
     }
+    function toCss(obj) {
+        if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+            throw new TypeError("expected an argument of type object, but got " + typeof obj);
+        }
+        var lines = [];
+        for (var index = 0; index < Object.keys(obj).length; index++) {
+            var id = Object.keys(obj)[index];
+            var key = caseConverter(id);
+            var value = obj[id];
+            if (typeof value === "object") {
+                var text = toCss(value);
+                lines.push(id + "{" + text + "}");
+            }
+            else {
+                lines.push(key + ":" + value + ";");
+            }
+        }
+        return lines.join("");
+    }
+    exports.toCss = toCss;
     function injectStyle(textOrObject, id, overridable, hostElement) {
         if (overridable === void 0) { overridable = true; }
         if (hostElement === void 0) { hostElement = document.head; }
@@ -31,6 +51,7 @@ define(["require", "exports"], function (require, exports) {
                 else if (overridable) {
                     oldStyle.innerHTML = css;
                 }
+                return;
             }
         }
         var style = document.createElement("style");
@@ -41,24 +62,4 @@ define(["require", "exports"], function (require, exports) {
         hostElement.appendChild(style);
     }
     exports.injectStyle = injectStyle;
-    function toCss(obj) {
-        if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
-            throw new TypeError("expected an argument of type object, but got " + typeof obj);
-        }
-        var lines = [];
-        for (var index = 0; index < Object.keys(obj).length; index++) {
-            var id = Object.keys(obj)[index];
-            var key = caseConverter(id);
-            var value = obj[id];
-            if (typeof value === "object") {
-                var text = toCss(value);
-                lines.push(id + "{" + text + "}");
-            }
-            else {
-                lines.push(key + ":" + value + ";");
-            }
-        }
-        return lines.join('');
-    }
-    exports.toCss = toCss;
 });
