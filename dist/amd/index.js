@@ -25,12 +25,11 @@ define(["require", "exports"], function (require, exports) {
             var oldStyle = document.getElementById(id);
             if (oldStyle) {
                 var isStyleTag = oldStyle.tagName.toLowerCase() === "style";
-                if (isStyleTag && overridable) {
-                    oldStyle.innerHTML = css;
-                    return;
-                }
-                else {
+                if (!isStyleTag) {
                     throw new Error("The provided id does not indicate a style tag.");
+                }
+                else if (overridable) {
+                    oldStyle.innerHTML = css;
                 }
             }
         }
