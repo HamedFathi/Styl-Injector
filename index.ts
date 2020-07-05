@@ -36,24 +36,22 @@ export function injectStyle(
   hostElement: HTMLElement = document.head
 ) {
   if (!textOrObject || Array.isArray(textOrObject)) return;
-  let css = "";
-  css = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
-  if (css.length === 0) return;
+  if (typeof textOrObject === 'string' && textOrObject.length === 0) return;
   if (id) {
     let oldStyle = document.getElementById(id);
     if (oldStyle) {
       let isStyleTag = oldStyle.tagName.toLowerCase() === "style";
       if (!isStyleTag) {
         throw new Error("The provided id does not indicate a style tag.");
-      } else if (overridable) {
-        oldStyle.innerHTML = css;
+      } else if (isStyleTag && overridable) {
+        oldStyle.innerHTML = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
       }
       return;
     }
   }
   let style = document.createElement("style");
   style.type = "text/css";
-  style.innerHTML = css;
+  style.innerHTML = typeof textOrObject === "object" ? toCss(textOrObject) : textOrObject;
   if (id) style.id = id;
   hostElement.appendChild(style);
 }

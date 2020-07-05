@@ -62,7 +62,7 @@ There is a conventional naming approach for defining your rules. Every uppercase
 
 ---
 
-## injectStylesheet(textOrObject, id, overridable, hostElement)
+## injectStyle(textOrObject, id, overridable, hostElement)
 
 A functionality to inject your text or object-based style to the html document easily!
 
@@ -76,9 +76,9 @@ A functionality to inject your text or object-based style to the html document e
 
 
 ```javascript
-injectStylesheet(cssObj,'my-style-tag');
+injectStyle(cssObj,'my-style-tag');
 
-injectStylesheet(`
+injectStyle(`
 .main-wrapper {
   flex-direction: row;
   display: flex;

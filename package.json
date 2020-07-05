@@ -1,6 +1,6 @@
 {
   "name": "styl-injector",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "simple functionality to inject a text or object-based style sheet into your HTML document.",
   "keywords": [
     "style",
