@@ -2,6 +2,8 @@
 [![npm version](https://badge.fury.io/js/styl-injector.svg)](https://badge.fury.io/js/styl-injector)
 [![Downloads](https://img.shields.io/npm/dm/styl-injector.svg)](https://www.npmjs.com/package/styl-injector)
 
+![font](https://user-images.githubusercontent.com/8418700/140723127-2bf267fd-d340-4154-ba8d-7c795011d1d9.png)
+
 # Styl-Injector 
 Simple functionality to inject a text or object-based style sheet into your HTML document.
 
@@ -99,3 +101,7 @@ li {
 `,'my-style-tag');
 
 ```
+
+<hr/>
+
+<div>Icons made by <a href="" title="Vector Clans">Vector Clans</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
